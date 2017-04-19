@@ -12,6 +12,9 @@
 		1D9398FF1EA7EDFD00EE91EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D9398FD1EA7EDFD00EE91EB /* Main.storyboard */; };
 		1D9399011EA7EDFD00EE91EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D9399001EA7EDFD00EE91EB /* Assets.xcassets */; };
 		1D9399041EA7EDFD00EE91EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D9399021EA7EDFD00EE91EB /* LaunchScreen.storyboard */; };
+		1D93990D1EA7EFE700EE91EB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D93990C1EA7EFE700EE91EB /* MapKit.framework */; };
+		1D93990F1EA7F23300EE91EB /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D93990E1EA7F23300EE91EB /* Pin.swift */; };
+		1D9399111EA7FCCD00EE91EB /* ArrayPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9399101EA7FCCD00EE91EB /* ArrayPin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		1D9399001EA7EDFD00EE91EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1D9399031EA7EDFD00EE91EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1D9399051EA7EDFD00EE91EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1D93990C1EA7EFE700EE91EB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		1D93990E1EA7F23300EE91EB /* Pin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
+		1D9399101EA7FCCD00EE91EB /* ArrayPin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayPin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D93990D1EA7EFE700EE91EB /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +47,7 @@
 			children = (
 				1D9398F81EA7EDFD00EE91EB /* Map */,
 				1D9398F71EA7EDFD00EE91EB /* Products */,
+				1D93990B1EA7EFE700EE91EB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,8 +68,18 @@
 				1D9399001EA7EDFD00EE91EB /* Assets.xcassets */,
 				1D9399021EA7EDFD00EE91EB /* LaunchScreen.storyboard */,
 				1D9399051EA7EDFD00EE91EB /* Info.plist */,
+				1D93990E1EA7F23300EE91EB /* Pin.swift */,
+				1D9399101EA7FCCD00EE91EB /* ArrayPin.swift */,
 			);
 			path = Map;
+			sourceTree = "<group>";
+		};
+		1D93990B1EA7EFE700EE91EB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1D93990C1EA7EFE700EE91EB /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -98,6 +116,11 @@
 						CreatedOnToolsVersion = 8.3.1;
 						DevelopmentTeam = 349F6PJY22;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -137,8 +160,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D93990F1EA7F23300EE91EB /* Pin.swift in Sources */,
 				1D9398FC1EA7EDFD00EE91EB /* ViewController.swift in Sources */,
 				1D9398FA1EA7EDFD00EE91EB /* AppDelegate.swift in Sources */,
+				1D9399111EA7FCCD00EE91EB /* ArrayPin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
