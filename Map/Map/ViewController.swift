@@ -13,7 +13,7 @@ import CoreLocation
 
 class ViewController: UIViewController, MKMapViewDelegate {
 
-    
+    @IBOutlet weak var segmentedAnnotation: UISegmentedControl!
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -52,19 +52,22 @@ class ViewController: UIViewController, MKMapViewDelegate {
         self.present(alert, animated: true, completion: nil)
         
         alert.addAction(UIAlertAction(title: "Hotel", style: .default, handler: { (action) in
-            ArrayPin.addPin("hotel", coordinate)
+            ArrayPin.addPin("Hotel", coordinate, "h", "hotel")
+            self.updateMap(indice: self.segmentedAnnotation.selectedSegmentIndex)
         }))
         
         alert.addAction(UIAlertAction(title: "Bar", style: .default, handler: { (action) in
-            ArrayPin.addPin("bar", coordinate)
+            ArrayPin.addPin("Bar", coordinate, "b",  "bar")
+            self.updateMap(indice: self.segmentedAnnotation.selectedSegmentIndex)
         }))
         
         
         alert.addAction(UIAlertAction(title: "Museu", style: .default, handler: { (action) in
-            ArrayPin.addPin("museu", coordinate)
+            ArrayPin.addPin("Museu", coordinate, "m",  "museu")
+            self.updateMap(indice: self.segmentedAnnotation.selectedSegmentIndex)
         }))
         
-        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: { (action) in
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .destructive, handler: { (action) in
         }))
         
     
@@ -82,11 +85,11 @@ class ViewController: UIViewController, MKMapViewDelegate {
         
         switch indice {
         case 0:
-            mapView.addAnnotation(ArrayPin.getArray()[2])
+            mapView.addAnnotations(ArrayPin.getArray(byId: "h")!)
         case 1:
-            mapView.addAnnotation(ArrayPin.getArray()[1])
+            mapView.addAnnotations(ArrayPin.getArray(byId: "b")!)
         case 2:
-            mapView.addAnnotation(ArrayPin.getArray()[0])
+            mapView.addAnnotations(ArrayPin.getArray(byId: "m")!)
         case 3:
             mapView.addAnnotations(ArrayPin.getArray())
         case 4:

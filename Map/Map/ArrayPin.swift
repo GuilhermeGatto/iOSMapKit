@@ -28,8 +28,11 @@ class ArrayPin{
         
         
         ArrayPin.array?[0].imageName = "museu.png"
+        ArrayPin.array?[0].id = "m"
         ArrayPin.array?[1].imageName = "bar.png"
+        ArrayPin.array?[1].id = "b"
         ArrayPin.array?[2].imageName = "hotel.png"
+        ArrayPin.array?[2].id = "h"
     }
     
     static func getArray() -> [Pin] {
@@ -39,11 +42,49 @@ class ArrayPin{
         return array!
     }
     
-    static func addPin(_ title : String, _ coordinate: CLLocationCoordinate2D){
+    static func getArray(byId: String) -> [Pin]? {
+        var aux: [Pin]? = []
+        
+        if array == nil {
+            _ = ArrayPin.init()
+        }
+        
+        switch byId {
+        case "m":
+            for index in 0 ..< (array?.count)! {
+                if array?[index].id == "m"{
+                    aux?.append((array?[index])!)
+                }
+            }
+        case "b":
+            for index in 0 ..< (array?.count)! {
+                if array?[index].id == "b"{
+                    aux?.append((array?[index])!)
+                }
+            }
+            
+        case "h":
+            for index in 0 ..< (array?.count )! {
+                if array?[index].id == "h"{
+                    aux?.append((array?[index])!)
+                }
+            }
+            
+        default: break
+            
+        }
+        
+        return aux
+        
+    }
+    
+    
+    static func addPin(_ title : String, _ coordinate: CLLocationCoordinate2D, _ id: String, _ imageName: String){
         let p = Pin()
         p.title = title
         p.coordinate = coordinate
-        p.imageName = title
+        p.imageName = imageName
+        p.id = id
         array?.append(p)
     }
     

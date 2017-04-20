@@ -13,5 +13,6 @@ import UIKit
 class Pin : MKPointAnnotation {
 
     var imageName: String!
+    var id: String!
     
 }

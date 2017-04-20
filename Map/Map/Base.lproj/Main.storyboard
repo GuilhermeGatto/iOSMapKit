@@ -67,6 +67,7 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="BjV-XZ-TGp" id="bRL-HN-UWL"/>
+                        <outlet property="segmentedAnnotation" destination="2Yn-Gl-YRF" id="weY-Zd-M9h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
