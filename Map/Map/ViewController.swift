@@ -25,6 +25,11 @@ class ViewController: UIViewController, MKMapViewDelegate {
         super.viewDidLoad()
         mapView.delegate = self
         centerMap(location: defaultLocation, radius: radius)
+        
+        
+        let longPressGR = UILongPressGestureRecognizer(target: self, action: #selector(ViewController.longPress(gr:)))
+        mapView.addGestureRecognizer(longPressGR)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,6 +38,37 @@ class ViewController: UIViewController, MKMapViewDelegate {
     
     
     // MARK: - My Functions
+    
+    func longPress(gr: UILongPressGestureRecognizer){
+        
+        
+        let touch = gr.location(in: self.mapView)
+        let
+        coordinate = mapView.convert(touch, toCoordinateFrom: self.mapView)
+        
+        
+        let alert = UIAlertController(title: "Add Pin", message: "Deseja adicionar que tipo de pin?", preferredStyle: UIAlertControllerStyle.alert)
+        
+        self.present(alert, animated: true, completion: nil)
+        
+        alert.addAction(UIAlertAction(title: "Hotel", style: .default, handler: { (action) in
+            ArrayPin.addPin("hotel", coordinate)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Bar", style: .default, handler: { (action) in
+            ArrayPin.addPin("bar", coordinate)
+        }))
+        
+        
+        alert.addAction(UIAlertAction(title: "Museu", style: .default, handler: { (action) in
+            ArrayPin.addPin("museu", coordinate)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: { (action) in
+        }))
+        
+    
+    }
     
     func centerMap(location : CLLocation, radius : CLLocationDistance){
         let region = MKCoordinateRegionMakeWithDistance(location.coordinate, radius, radius)

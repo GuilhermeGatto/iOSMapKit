@@ -39,6 +39,14 @@ class ArrayPin{
         return array!
     }
     
+    static func addPin(_ title : String, _ coordinate: CLLocationCoordinate2D){
+        let p = Pin()
+        p.title = title
+        p.coordinate = coordinate
+        p.imageName = title
+        array?.append(p)
+    }
+    
     
 }
 
